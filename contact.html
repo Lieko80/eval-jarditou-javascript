@@ -51,80 +51,98 @@
 <!--formulaire-->        
     <p>* Ces zones sont obligatoires</p>
     <form action="http://bienvu.net/script.php" method="GET">
-<!--formulaire 1-->
-        <legend>Vos coordonnées</legend>
-    <div class="mb-2">
-        <div class="form-group ">
-            <label class=col-2 for="nom">Votre nom*:</label>
-            <input type="text" class="form-control" id="nom" pattern="^[a-z]+$" title="Entrez votre nom (que des caractères entre a et z)" placeholder="Veuillez saisir votre nom">
-        </div>
-        <div class="form-group">
-            <label class=col-2 for="prenom">Votre prénom*:</label>
-            <input type="text" class="form-control" id="prenom" pattern="^[a-z]+$" title="Entrez votre prenom (que des caractères entre a et z)" placeholder="Veuillez saisir votre prénom">
-        </div>
-        
-<!--radio-->
-            <p class="col-2">Sexe*</p>
-        <div class="form-inline my-0 my-lg-0 m">
-            <form name="gender">
-            <div class="form-check mx-2 col-2">
-            <input class="form-check-input" type="radio" id="sexeF" name="sexe" value="Féminin">
-            <label class="form-check-label" for="sexe">Féminin</label>
-        </div>
-        <div class="form-check mx-2">
-            <input class="form-check-input" type="radio" id="sexeM" name="sexe" value="Masculin">
-            <label class="form-check-label" for="sexe">Masculin</label>
-        </div>
-            </form>
-    </div>
-        <div class="form-group mt-4">
-            <label class=col-2 for="date">Date Naissance*:</label>
-            <input type="date" class="form-control" id="date" name="date">
-        </div>
-        <div class="form-group">    
-            <label class=col-2 type="text">Code Postal : </label>
-            <input type="text" class="form-control" id="cp" name="postal">
-        </div>
-        <div class="form-group">
-            <label class=col-2 type="text">Adresse : </label>
-            <input type="text" class=" form-control " name="adresse">
-        </div>
-        <div class="form-group">    
-            <label class=col-2 type="text">Ville : </label>
-            <input type="text" class="form-control" name="ville">
-        </div>
-        <div class="form-group">    
-            <label class=col-2 for="email">Email*:</label>
-            <input type="text" class="form-control" id="email" placeholder="dave.loper@afpa.fr" title="email"><br>
-        </div>
-    </div>
-<!--formaulaire 2--> 
-        <legend>Votre demande</legend> 
-    <div class="mt-3">             
-            <div class="form-group">
-                <label class=col-2 for="sujet">Sujet*:</label>
-                <select class="form-control" id="sujet" size="1">
-                <option value="">Veuillez selectionner un sujet</option>
-                <option>Mes commandes</option>
-                <option>Question sur un produit</option>
-                <option>Réclamation</option>
-                <option>Autres</option>
-                </select>
+        <fieldset>
+            <legend>Vos coordonnées</legend>
+                <!--nom-->
+                <div class="form-group mx-2">
+                    <label for="nom"> Votre nom*: </label>
+                    <input type="text" id="nom" name="nom" class="form-control">
+                    <p id="Errnom" class="text-danger"></p>
+                </div>
+                <!--prénom-->
+                <div class="form-group mx-2">
+                    <label for="prenom"> Votre prénom*: </label>
+                    <input type="text" name="prenom" class="form-control" id="prenom">
+                    <p id="Errprenom" class="text-danger"></p>
             </div>
-            <div class="form-group rounded">
-            <label class="col-2" for="question">Votre question*:</label>
-            <textarea class="form-control" id="question" rows="2"></textarea>       
+            <!--exe-->
+            <div class="form-row mx-2">
+                <label class="col-form-label">Sexe*:</label>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input class="custom-control-input" type="radio" name="sexe" id="feminin" value="femme">
+                    <label class="custom-control-label" for="feminin">Féminin</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input class="custom-control-input" type="radio" name="sexe" id="masculin" value="homme">
+                    <label class="custom-control-label" for="masculin">Masculin</label>
+                </div>
+            </div>
+            <p id="Errsexe" class="text-danger"></p>
+            <!--date-->
+            <div class="form-group mx-2">
+                <label for="naissance"> Date de naissance*: </label>
+                <input type="date" id="naissance" name="naissance" class="form-control">
+                <p id="Errnaissance" class="text-danger"></p>
+                <p id="Errdatenaissance" class="text-danger"></p>
+            </div>
+            <!--CP-->
+            <div class="form-group mx-2">
+                <label for="code"> Code Postal*: </label>
+                <input type="text" id="code" name="code" class="form-control">
+                <p id="Errcode" class="text-danger"></p>
+            </div>
+            <!--adresse-->
+            <div class="form-group mx-2">
+                <label for="adresse"> Adresse: </label>
+                <input type="text" id="adresse" class="form-control" name="adresse" placeholder="123 rue du deve">
+                <p id="Erradrs" class="text-danger"></p>
+            </div>
+            <!--ville-->
+            <div class="form-group mx-2">
+                <label for="ville"> Ville: </label>
+                <input type="text" id="ville" name="ville" class="form-control">
+                <p id="Errville" class="text-danger"></p>
+            </div>
+            <!--mail-->
+            <div class="form-group mx-2">
+                <label for="mail"> Email*: </label>
+                <input type="email" id="mail" class="form-control" name="email" placeholder="dave.loper@afpa.fr">
+                <p id="Errmail" class="text-danger"></p>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Votre demande</legend>
+            <!--sujet-->
+            <div class="form-row mx-2">
+                <label for="sujet"> Sujet*: </label>
+                <select name="sujet" id="sujet" class="form-control">
+        <option value="sujet">Sujet</option>
+        <option value="commandes">Mes commandes</option>
+        <option value="produit">Question sur un produit</option>
+        <option value="reclamation">Reclamation</option>
+        <option value="autres">Autres</option>
+      </select>
+                <p id="Errsujet" class="text-danger"></p>
+            </div>
+            <!--question-->
+            <div class="form-group mx-2">
+                <label for="question"> Votre question*: </label>
+                <textarea class="form-control" name="question" id="question" cols="20" rows="3"></textarea>
+                <p id="Errquestion" class="text-danger"></p>
+            </div>
+        </fieldset>
+        <div class="custom-control custom-checkbox mx-2">
+            <input class="custom-control-input" type="checkbox" id="accepte">
+            <label class="custom-control-label" for="accepte">J'accepte le traitement informatique de ce formulaire.</label>
+            <p id="Erraccpt" class="text-danger"></p>
         </div>
-
-        <div class="form-check">
-            <input type="checkbox" name="cocher" id="chekbox" required>
-            <label for="cocher">j'accepte le traitement informatique de ce formulaire</label>
-        </div>   
-            <button class="btn btn-secondary mx-3 mb-2 border-primary" type="submit" id="envoie" onclick="Validate(this)">Envoyer</button>
-            <button class="btn btn-secondary mb-2 border-primary" type="reset">Annuler</button>
-    </div>
+        <hr>
+        <div class="form-group mx-2">
+            <button type="submit" value="Envoyer" id="envoi" class="btn btn-primary">Envoyer</button>
+            <button type="reset" value="Annuler" class="btn btn-primary">Annuler</button>
+        </div>
     </form>
-    <footer>
+<footer>
         <nav class="navbar navbar-expand-lg mt-3 navbar-dark bg-dark ">
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -146,7 +164,7 @@
         </nav>
     </footer>
 </div>
-<script src="js/scrip.js"></script>
+<script src="js/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
